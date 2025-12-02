@@ -9,6 +9,10 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+app.get("/", (req, res) => {
+  res.send("Portfolio Backend is running ✅");
+});
+
 // API route to send email
 app.post("/send-email", async (req, res) => {
   const { fullName, email, description } = req.body;
@@ -48,7 +52,7 @@ app.post("/send-email", async (req, res) => {
   }
 });
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT;
 
 app.listen(PORT, () => {
   console.log(`Backend server running on port ${PORT}`);
